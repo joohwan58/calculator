@@ -49,7 +49,7 @@ const calculatorScreen = {
         calculatorScreen.lower.textContent = update;
     },
     clear: () => {
-        calculatorScreen.updatelowerScreen("");
+        calculatorScreen.updateUpperScreen("");
         calculatorScreen.updatelowerScreen("0");
     },
 }
@@ -113,4 +113,16 @@ function inputOperator(op) {
     calculatorScreen.updateUpperScreen(parseFloat(calculatorScreen.lower.textContent) + op);
     evaluation.firstNumber = calculatorScreen.lower.textContent;
     calculatorScreen.updatelowerScreen("0");
+}
+
+function equals() {
+    if (evaluation.firstNumber == "" || evaluation.operator == "" || evaluation.secondNumber == "") {
+        return;
+    }
+    let result = evaluation.evaluate();
+    calculatorScreen.clear();
+    calculatorScreen.updatelowerScreen(result);
+    evaluation.clear();
+    evaluation.firstNumber = result;
+    console.log(evaluation);
 }
