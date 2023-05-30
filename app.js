@@ -126,3 +126,6 @@ function equals() {
     evaluation.firstNumber = result;
     console.log(evaluation);
 }
+
+const clearButton = document.querySelector('.clear');
+console.log(clearButton);
