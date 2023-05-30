@@ -25,9 +25,3 @@ let calculatorScreen = {
         calculatorScreen.lower.textContent = update;
     }
 }
-
-calculatorScreen.clearLowerScreen();
-calculatorScreen.clearUpperScreen();
-calculatorScreen.appendUpperScreen('123+23');
-calculatorScreen.appendLowerScreen('86423');
-calculatorScreen.updateUpperScreen('7652634');
