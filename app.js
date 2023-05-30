@@ -100,9 +100,6 @@ function inputNumber(n) {
     } else {
         evaluation.secondNumber = calculatorScreen.lower.textContent;
     }
-    console.log(evaluation.firstNumber);
-    console.log(evaluation.operator);
-    console.log(evaluation.secondNumber);
 }
 
 function inputOperator(op) {
@@ -124,8 +121,6 @@ function equals() {
     calculatorScreen.updatelowerScreen(result);
     evaluation.clear();
     evaluation.firstNumber = result;
-    console.log(evaluation);
 }
 
 const clearButton = document.querySelector('.clear');
-console.log(clearButton);
