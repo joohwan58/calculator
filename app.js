@@ -16,14 +16,20 @@ const calculatorScreen = {
         let originalContent = calculatorScreen.lower.textContent;
         calculatorScreen.lower.textContent = originalContent + append;
     },
+    backspace: () => {
+        let originalContent = calculatorScreen.lower.textContent;
+        calculatorScreen.lower.textContent = originalContent.slice(0, -1);
+    },
     updateUpperScreen: (update) => {
-        calculatorScreen.upper.clearUpperScreen();
         calculatorScreen.upper.textContent = update;
     },
     updatelowerScreen: (update) => {
-        calculatorScreen.lower.clearLowerScreen();
         calculatorScreen.lower.textContent = update;
-    }
+    },
+    clear: () => {
+        calculatorScreen.updatelowerScreen("");
+        calculatorScreen.updatelowerScreen("0");
+    },
 }
 
 let evaluation = {
@@ -57,5 +63,10 @@ let evaluation = {
     },
     appendSecondNumber: (n) => {
         evaluation.secondNumber += n;
+    },
+    clear: () => {
+        evaluation.firstNumber = "";
+        evaluation.secondNumber = "";
+        evaluation.operator = "";
     },
 }
