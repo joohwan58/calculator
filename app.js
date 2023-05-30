@@ -17,26 +17,27 @@ const calculatorScreen = {
                 count++;
             }
         }
-        let floatValidity = (parseFloat(calculatorScreen.lower.textContent) === parseFloat(checking)) ? false : true;
-        switch (count) {
-            case 0:
-                return floatValidity;
-            case 1: 
-                return true;
-            default:
-                return false;
-                break;
+        if (count == 1) {
+            return checking;
         }
+        if (count > 1) {
+            return calculatorScreen.lower.textContent;
+        }
+        let floatChanged = (parseFloat(calculatorScreen.lower.textContent) === parseFloat(checking)) ? false : true;
+        if (floatChanged) {
+            return parseFloat(checking);
+        } else {
+            return calculatorScreen.lower.textContent;
+        }
+
     },
     appendLowerScreen: (append) => {
-        if (calculatorScreen.lower.textContent == '0') {
-            calculatorScreen.lower.textContent = append;
-            return;
-        }
+        // if (calculatorScreen.lower.textContent == '0') {
+        //     calculatorScreen.lower.textContent = append;
+        //     return;
+        // }
         let newContent = calculatorScreen.lower.textContent + append;
-        if (calculatorScreen.ValidityChecker(newContent)) {
-            calculatorScreen.lower.textContent = newContent;
-        }
+        calculatorScreen.lower.textContent = calculatorScreen.ValidityChecker(newContent);
     },
     backspace: () => {
         let originalContent = calculatorScreen.lower.textContent;
