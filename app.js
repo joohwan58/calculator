@@ -134,3 +134,18 @@ clearButton.addEventListener('click', () => {
 
 const backspaceButton = document.querySelector('.backspace');
 backspaceButton.addEventListener('click', calculatorScreen.backspace);
+
+const equalButton = document.querySelector('.equals');
+equalButton.addEventListener('click', equals);
+
+const numberButtons = document.querySelectorAll('.number');
+numberButtons.forEach((element) => {
+    element.addEventListener('click', () => {
+        inputNumber(element.classList[2]);
+    })
+});
+
+const decimalButton = document.querySelector('.decimal');
+decimalButton.addEventListener('click', () => {
+    inputNumber('.');
+})
