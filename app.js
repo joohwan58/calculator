@@ -69,7 +69,8 @@ let evaluation = {
         switch (evaluation.operator) {
             case '÷':
                 if (b == 0) {
-                    return 'LMAO';
+                    alert('By attempting to divide by zero, you have destroyed the universe. Good for you!');
+                    return '0';
                 }
                 return a / b;
             case '×':
