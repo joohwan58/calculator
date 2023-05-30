@@ -26,8 +26,27 @@ body {
     background-color: grey;
     border: 2px solid black;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
 }
 
 .screen {
     font-family: 'Seven-Segment';
+    background-color: beige;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    gap: 7px;
+}
+
+.upper-screen {
+    font-size: 35px;
+}
+
+.lower-screen {
+    font-size: 70px;
 }
