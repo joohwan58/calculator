@@ -1,3 +1,5 @@
+const MAX_LENGTH = 9;
+
 const calculatorScreen = {
     upper: document.querySelector('.upper-screen'),
     lower: document.querySelector('.lower-screen'),
@@ -8,13 +10,33 @@ const calculatorScreen = {
     clearLowerScreen: () => {
         calculatorScreen.lower.textContent = "";
     },
-    appendUpperScreen: (append) => {
-        let originalContent = calculatorScreen.upper.textContent;
-        calculatorScreen.upper.textContent = originalContent + append;
+    ValidityChecker: (checking) => {
+        let count = 0;
+        for (let i = 0; i < checking.length; i++) {
+            if (checking[i] == '.') {
+                count++;
+            }
+        }
+        let floatValidity = (parseFloat(calculatorScreen.lower.textContent) === parseFloat(checking)) ? false : true;
+        switch (count) {
+            case 0:
+                return floatValidity;
+            case 1: 
+                return true;
+            default:
+                return false;
+                break;
+        }
     },
     appendLowerScreen: (append) => {
-        let originalContent = calculatorScreen.lower.textContent;
-        calculatorScreen.lower.textContent = originalContent + append;
+        if (calculatorScreen.lower.textContent == '0') {
+            calculatorScreen.lower.textContent = append;
+            return;
+        }
+        let newContent = calculatorScreen.lower.textContent + append;
+        if (calculatorScreen.ValidityChecker(newContent)) {
+            calculatorScreen.lower.textContent = newContent;
+        }
     },
     backspace: () => {
         let originalContent = calculatorScreen.lower.textContent;
@@ -69,4 +91,26 @@ let evaluation = {
         evaluation.secondNumber = "";
         evaluation.operator = "";
     },
+}
+
+function inputNumber(n) {
+    calculatorScreen.appendLowerScreen(n);
+    if (evaluation.operator == "") {
+        evaluation.firstNumber = calculatorScreen.lower.textContent;
+    } else {
+        evaluation.secondNumber = calculatorScreen.lower.textContent;
+    }
+    console.log(evaluation.firstNumber);
+    console.log(evaluation.operator);
+    console.log(evaluation.secondNumber);
+}
+
+function inputOperator(op) {
+    if (calculatorScreen.lower.textContent == '0') {
+        return;
+    }
+    evaluation.operator = op;
+    calculatorScreen.updateUpperScreen(parseFloat(calculatorScreen.lower.textContent) + op);
+    evaluation.firstNumber = calculatorScreen.lower.textContent;
+    calculatorScreen.updatelowerScreen("0");
 }
