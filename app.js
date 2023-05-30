@@ -41,6 +41,9 @@ const calculatorScreen = {
     backspace: () => {
         let originalContent = calculatorScreen.lower.textContent;
         calculatorScreen.lower.textContent = originalContent.slice(0, -1);
+        if (calculatorScreen.lower.textContent == "") {
+            calculatorScreen.lower.textContent = '0';
+        }
     },
     updateUpperScreen: (update) => {
         calculatorScreen.upper.textContent = update;
@@ -124,3 +127,10 @@ function equals() {
 }
 
 const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', () => {
+    calculatorScreen.clear();
+    evaluation.clear();
+});
+
+const backspaceButton = document.querySelector('.backspace');
+backspaceButton.addEventListener('click', calculatorScreen.backspace);
