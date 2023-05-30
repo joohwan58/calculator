@@ -45,10 +45,12 @@ body {
 
 .upper-screen {
     font-size: 35px;
+    height: 36px;
 }
 
 .lower-screen {
     font-size: 70px;
+    height: 72px;
 }
 
 .button-container {
