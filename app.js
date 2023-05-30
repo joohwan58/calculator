@@ -149,3 +149,10 @@ const decimalButton = document.querySelector('.decimal');
 decimalButton.addEventListener('click', () => {
     inputNumber('.');
 })
+
+const operatorButtons = document.querySelectorAll('.operator');
+operatorButtons.forEach((element) => {
+    element.addEventListener('click', () => {
+        inputOperator(element.classList[2]);
+    });
+});
