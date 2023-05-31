@@ -70,6 +70,29 @@ body {
     font-size: 20px;
     margin-bottom: 10px;
 }
+.button.clear {
+    background-color: #ff704d;
+}
+
+.button.clear:hover {
+    background-color: #ff602b;
+}
+
+.button.clear:active {
+    background-color: #ff471a;
+}
+
+.button.backspace {
+    background-color: #8080ff;
+}
+
+.button.backspace:hover {
+    background-color: #6060ff;
+}
+
+.button.backspace:active {
+    background-color: #4d4dff;
+}
 
 .button {
     width: 77.75px;
@@ -78,5 +101,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+    background-color: rgba(255, 255, 255, 93%);
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 80%);
+}
+
+.button:active {
+    background-color: rgba(255, 255, 255, 70%)
 }
