@@ -16,8 +16,10 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .calculator {
@@ -41,20 +43,21 @@ body {
     align-items: flex-end;
     padding: 10px;
     gap: 7px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .upper-screen {
     font-size: 35px;
-    height: 36px;
+    min-height: 36px;
 }
 
 .lower-screen {
     font-size: 70px;
-    height: 72px;
+    min-height: 72px;
 }
 
 .button-container {
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 25px;
     display: flex;
@@ -109,5 +112,5 @@ body {
 }
 
 .button:active {
-    background-color: rgba(255, 255, 255, 70%)
+    background-color: rgba(255, 255, 255, 70%);
 }

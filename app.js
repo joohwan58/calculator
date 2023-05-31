@@ -158,3 +158,41 @@ operatorButtons.forEach((element) => {
         inputOperator(element.classList[2]);
     });
 });
+
+document.addEventListener('keydown', (event) => {
+    switch (event.key) {
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '0':
+        case '.':
+            inputNumber(event.key);
+            break;
+        case '-':
+            inputOperator(event.key);
+            break;
+        case '/':
+            inputOperator('÷');
+            break;
+        case '*':
+            inputOperator('×');
+            break;
+        case '+':
+            inputOperator('+');
+            break;
+        case '=':
+            equals();
+        case 'Backspace':
+            calculatorScreen.backspace();
+        case 'c':
+            calculatorScreen.clear();
+        default:
+            break;
+    }
+})
